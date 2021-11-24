@@ -1,5 +1,3 @@
-{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
-import Text.Parsec.Prim (Stream)
 -- Лабораторна робота №4
 -- студента групи КН-32
 -- підгрупа 1
@@ -8,6 +6,14 @@ import Text.Parsec.Prim (Stream)
 
 -- Мета: Ознайомитись з системою типiв та класiв типiв. Набути досвiду визначення
 -- нових типiв та класiв типiв i їх використання.
+
+-- Тести: 
+-- *Main> funk1 [(Book "User1" "dsfdfs"),(Book "User2" "dsfdfs"),(Book "User3" "dsfdfs")] "User1"         
+-- [Book "User1" "dsfdfs"]
+
+-- *Main> funk1 [(Book "User1" "dsfdfs"),(Book "User2" "dsfdfs"),(Book "User1" "dhjhksfdfs")] "User1"
+-- [Book "User1" "dsfdfs",Book "User1" "dhjhksfdfs"]
+
 
 data Publication
     = Book String String
