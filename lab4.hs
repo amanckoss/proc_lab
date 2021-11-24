@@ -1,19 +1,32 @@
+{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
+import Text.Parsec.Prim (Stream)
+-- Лабораторна робота №4
+-- студента групи КН-32
+-- підгрупа 1
+-- Гежа Михаїл
+-- Варіант №8
 
-data Font = Consolas 
-    | LucidaConsole 
-    | SourceCodePro 
-    deriving (Eq, Show)
+-- Мета: Ознайомитись з системою типiв та класiв типiв. Набути досвiду визначення
+-- нових типiв та класiв типiв i їх використання.
 
-data Figure 
-    = Circle (Integer, Integer) Integer
-  | Rectangle (Integer, Integer) (Integer, Integer)
-  | Triangle (Integer, Integer) (Integer, Integer) (Integer, Integer)
-  | Label (Integer, Integer) Font String
+data Publication
+    = Book String String
+   | Article String String String String String String String
+   | Tez String String String String String String
   deriving (Eq, Show)
 
-getRectangle :: [Figure] -> [Figure]
-getRectangle [] = []
-getRectangle ((Rectangle (x1, y1) (x2, y2)) : fs) = Rectangle (x1, y1) (x2, y2) : getRectangle fs
-getRectangle ((Circle (x1, y1) n) : fs) = Circle (x1, y1) n : getRectangle fs
-getRectangle ((Triangle (x1, y1) (x2, y2) (x3, y3)) : fs) = Triangle (x1, y1) (x2, y2) (x3, y3) : getRectangle fs
-getRectangle ((Label (x1, y1) fnt str) : fs) = Label (x1, y1) fnt str : getRectangle fs
+funk1 :: [Publication] -> String -> [Publication]
+funk1 [] k = []
+funk1 ((Book x y) : fs) k = if x == k
+  then Book x y : funk1 fs k
+  else funk1 fs k
+funk1 ((Article a b c d e f g) : fs) k = if a == k
+  then Article a b c d e f g : funk1 fs k
+  else funk1 fs k
+funk1 ((Tez a b c d e f) : fs) k = if a == k
+  then Tez a b c d e f : funk1 fs k
+  else funk1 fs k
+
+-- Висновок: Під час виконання лабораторної роботи, ми ознайомилися та 
+-- імплементували класи типів мови Haskell. Також ознайомилися з системою
+-- типів та класів типів, визначили власні функції для нового типу. 
