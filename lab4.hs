@@ -16,7 +16,7 @@
 
 
 data Publication
-    = Book String String
+    = Book String Stringу
    | Article String String String String String String String
    | Tez String String String String String String
   deriving (Eq, Show)
