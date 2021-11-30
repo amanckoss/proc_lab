@@ -34,7 +34,4 @@ vyvod = do
     amount <- hReadLine  strL
     writeFile "output.txt" (funk1 (digitToInt (head amount)) str)
 
-hReadLine :: String -> IO String
-hReadLine = error "not implemented"
-
 -- Висновок: Ознайомились з модульною органiзацiєю програм та засобами введення-виведення.
